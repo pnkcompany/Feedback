@@ -23,7 +23,7 @@ public class ProductController {
             return "product/index";
     }
 
-    @RequestMapping(value = "detail332/{id}",method = RequestMethod.GET)
+    @RequestMapping(value = "detail/{id}",method = RequestMethod.GET)
     public  String detail(@PathVariable("id") int id, ModelMap modelMap) {
         Product product = productService.find(id);
         modelMap.put("product", product);
