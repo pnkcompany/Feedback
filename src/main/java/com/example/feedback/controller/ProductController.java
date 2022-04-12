@@ -34,5 +34,16 @@ public class ProductController {
         return "product/detail";
     }
 
+    @RequestMapping(value = "detsadail/{id}",method = RequestMethod.GET)
+    public  String detail1(@PathVariable("id") int id, ModelMap modelMap) {
+        Product product = productService.find(id);
+        modelMap.put("product", product);
+        Review review = new Review();
+
+        review.setProduct(product);
+        modelMap.put("review",review);
+        return "product/detail";
+    }
+
 }
 
