@@ -5,7 +5,6 @@ package com.example.feedback.model;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -24,8 +23,8 @@ public class Review {
     private float rating;
 
     @OneToOne
-    @JoinColumn(name = "account_id")
-    private  Account account;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @OneToOne
     @JoinColumn(name = "product_id")

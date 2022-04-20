@@ -20,10 +20,13 @@ public class Product  implements java.io.Serializable{
     private  Integer id;
     private String name;
     private  double price;
+
+    @Column(columnDefinition = "TEXT")
     private  String photo;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Review> reviews = new HashSet<Review>(0);
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
 }

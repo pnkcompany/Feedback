@@ -5,8 +5,9 @@ import com.example.feedback.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
-
+import org.apache.commons.collections4.*;
 
 @Service("productService")
 @Transactional
@@ -16,8 +17,9 @@ public class ProductServiceImpl implements ProductService {
     private ProductRepository productRepository;
 
     @Override
-    public Iterable<Product> findAll(){
-       return productRepository.findAll();
+    public List<Product> findAll(){
+        List<Product> result = IterableUtils.toList(productRepository.findAll());
+        return result;
     }
 
     public Product find(int id) {

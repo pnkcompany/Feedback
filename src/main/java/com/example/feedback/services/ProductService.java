@@ -2,8 +2,10 @@ package com.example.feedback.services;
 
 import com.example.feedback.model.Product;
 
+import java.util.List;
+
 public interface ProductService {
-    public Iterable<Product> findAll ();
+    public List<Product> findAll ();
     public Product find(int id);
 
 }
